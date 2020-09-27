@@ -1,0 +1,1 @@
+clear && ./gradlew -x test clean build bootRun -Pprofile=dev

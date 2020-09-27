@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  application.name: resource-category
+  datasource:
+    url: jdbc:mysql://10.80.20.10:3306/zeus-2?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    test-on-borrow: true
+    hikari:
+      driver: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://10.80.20.10:3306/zeus-2?characterEncoding=UTF-8&autoReconnect=true&useSSL=false
+      username: app
+      password: devxJYijwLhYuzrqwKJ4UNHoTeTdnnc4
+      connection-timeout: 60000
+      idle-timeout: 300000
+      pool-name: pluto-pool
+      minimum-idle: 1
+      maximum-pool-size: 10
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: none
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+
+app:
+  jwt:
+    issuer: tesla
+    token.expiry: 1     # in days
+    security.key: tesl@2020$
+  auth:
+    password.salt: '@RU%sdn$@PDdg#'
+
+# region actuator configurations
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # include: health,info,metrics
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+# endregion actuator configurations

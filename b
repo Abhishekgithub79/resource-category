@@ -1,0 +1,1 @@
+clear && ./gradlew clean build -x test -Pprofile=dev
